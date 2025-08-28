@@ -30,6 +30,7 @@
 							<td colspan=4 align=right><input type="submit" value=" 확인 "></td>
 						</tr>
 					</table>
+					<h1>메세지를 남겨주세요</h1>
 				</form>
 				<ul>
 					
