@@ -15,7 +15,7 @@
 		<c:import url="/WEB-INF/views/includes/header.jsp"/>
 		<div id="content">
 			<div id="guestbook">
-				<form action="{pageContext.request.contextPath }/guestbook" method="post">
+				<form action="${pageContext.request.contextPath }/guestbook" method="post">
 					<input type="hidden" name="a" value="add">
 					<table>
 						<tr>
@@ -31,7 +31,7 @@
 					</table>
 				</form>
 				
-				<h2>메세지를 남겨 주세요.</h2>
+				<h3>메세지를 남겨 주세요.</h3>
 				<ul>
 					<c:set var="count" value="${fn:length(list) }" />
 					<c:forEach items="${list }" var="vo" varStatus="status">
