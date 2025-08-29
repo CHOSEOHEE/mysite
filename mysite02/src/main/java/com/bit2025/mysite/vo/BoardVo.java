@@ -9,7 +9,7 @@ public class BoardVo {
 	private int hit;
 	private Date reg_time;
 	private int g_no;
-	private int n_no;
+	private int o_no;
 	private int depth;
 	private Long user_id;
 	public Long getId() {
@@ -48,11 +48,11 @@ public class BoardVo {
 	public void setG_no(int g_no) {
 		this.g_no = g_no;
 	}
-	public int getN_no() {
-		return n_no;
+	public int getO_no() {
+		return o_no;
 	}
 	public void setN_no(int n_no) {
-		this.n_no = n_no;
+		this.o_no = n_no;
 	}
 	public int getDepth() {
 		return depth;
@@ -70,7 +70,7 @@ public class BoardVo {
 	@Override
 	public String toString() {
 		return "BoardVo [id=" + id + ", title=" + title + ", contents=" + contents + ", hit=" + hit + ", reg_time="
-				+ reg_time + ", g_no=" + g_no + ", n_no=" + n_no + ", depth=" + depth + ", user_id=" + user_id + "]";
+				+ reg_time + ", g_no=" + g_no + ", o_no=" + o_no + ", depth=" + depth + ", user_id=" + user_id + "]";
 	}
 	
 	
