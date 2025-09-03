@@ -1,6 +1,6 @@
 package com.bit2025.mysite.vo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UserVo {
 	private Long id;
@@ -50,11 +50,4 @@ public class UserVo {
 		return "UserVo [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", gender="
 				+ gender + ", joinDate=" + joinDate + "]";
 	}
-	public UserVo findByEmailAndPassword(String email2, String password2) {
-		return null;
-	}
-	
-	}
-	
-	
-
+}
