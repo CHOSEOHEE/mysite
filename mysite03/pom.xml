@@ -116,6 +116,11 @@
 			<artifactId>aop</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.bit2025</groupId>
+			<artifactId>emaillist01</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
