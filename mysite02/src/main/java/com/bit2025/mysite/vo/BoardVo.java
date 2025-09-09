@@ -51,6 +51,9 @@ public class BoardVo {
 	public int getO_no() {
 		return o_no;
 	}
+	public void setO_no(int o_no) {
+	}
+	
 	public void setN_no(int n_no) {
 		this.o_no = n_no;
 	}
