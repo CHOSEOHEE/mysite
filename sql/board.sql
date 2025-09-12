@@ -25,6 +25,7 @@ VALUES ('둘리', 'dooly@gmail.com', PASSWORD('1234'), 'male', CURRENT_DATE());
 --
 
 desc board;
+
 alter table board modify id int not null auto_increment;
 
 -- findAll
