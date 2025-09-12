@@ -2,7 +2,6 @@
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
 <%@ taglib uri="jakarta.tags.functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% pageContext.setAttribute("newLine", "\n"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +15,11 @@
 		<div id="wrapper">
 			<div id="content">
 				<div id="site-introduction">
-					<img id="profile" src="${pageContext.request.contextPath }${siteVo.profileURL }" style="width:150px">
-					<h2>${siteVo.welcomeMessage }</h2>
-					<p>
-						${fn:replace(siteVo.description, newLine, "<br>") }
-					</p>
+					<h1>Mysite : Exception</h1>
+					<hr>
+					<pre style="color: red; padding: 5px 0">
+${errors }
+					</pre>
 				</div>
 			</div>
 		</div>

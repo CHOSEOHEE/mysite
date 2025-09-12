@@ -2,14 +2,29 @@ package com.bit2025.mysite.vo;
 
 import java.util.Date;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class UserVo {
 	private Long id;
+	
+	@NotEmpty
+	@Size(min=2, max=8)
 	private String name;
+	
+	@NotEmpty
+	@Email
 	private String email;
+	
+	@NotEmpty
+	@Size(min=4, max=16)
 	private String password;
+	
 	private String gender;
 	private Date joinDate;
 	private String role;
+	
 	public Long getId() {
 		return id;
 	}
@@ -45,8 +60,7 @@ public class UserVo {
 	}
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
-	}
-	
+	}	
 	public String getRole() {
 		return role;
 	}
