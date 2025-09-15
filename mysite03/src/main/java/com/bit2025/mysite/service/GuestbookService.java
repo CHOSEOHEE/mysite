@@ -1,4 +1,3 @@
-
 package com.bit2025.mysite.service;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class GuestbookService {
 	public List<GuestbookVo> getMessageList() {
 		return guestbookRepository.findAll();
 	}
-	
+
 	public void addMessage(GuestbookVo vo) {
 		guestbookRepository.insert(vo);
 	}

@@ -47,3 +47,4 @@ window.addEventListener("load", function(){
 				</c:choose>	
 			</ul>
 		</div>
+
