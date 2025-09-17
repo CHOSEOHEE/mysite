@@ -22,7 +22,7 @@ public class FileuploadConfig implements WebMvcConfigurer {
 	// mvc url-resource mapping
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry 
+		registry
 			.addResourceHandler(env.getProperty("fileupload.resourceUrl") + "/**")
 			.addResourceLocations("file:" + env.getProperty("fileupload.uploadLocation") + "/");
 	}
