@@ -32,7 +32,9 @@
 			<MaxFileSize>100MB</MaxFileSize>
 		</triggeringPolicy>
 	</appender>
-
+	
+	<logger name="com.bit2025.mysite" level="debug"/>
+	
 	<logger name="com.bit2025.mysite.exception" level="error"
 		additivity="false">
 		<appender-ref ref="fileAppender" />
