@@ -135,6 +135,14 @@
 	</dependencies>
 
 	<build>
-		<finalName>mysite05</finalName>
-	</build>	
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+        </resource>
+    </resources>
+    <finalName>mysite05</finalName>
+ 
+</build>
+	
 </project>

@@ -1,5 +1,7 @@
 package com.bit2025.mysite.initializer;
 
+
+import java.io.InputStream;
 import java.util.ResourceBundle;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -36,6 +38,8 @@ public class MySiteWebApplicationInitializer extends AbstractAnnotationConfigDis
 		
 		MultipartConfigElement multipartConfig = new MultipartConfigElement(null, maxFileSize, maxRequestSize, fileSizeThreshold);
 		registration.setMultipartConfig(multipartConfig);
+
 	}
+	
 	
 }
