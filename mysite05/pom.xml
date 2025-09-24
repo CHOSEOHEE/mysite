@@ -2,11 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.bite2025</groupId>
-		<artifactId>mysite</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+	<groupId>com.bite2025</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<artifactId>mysite05</artifactId>
 	<packaging>war</packaging>
 	
@@ -15,6 +12,7 @@
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 		<org.springframework-version>6.2.1</org.springframework-version>
+        <org.springsecurity-version>6.4.2</org.springsecurity-version>
 		<jcloverslf4j.version>1.7.36</jcloverslf4j.version>		
     	<logback.version>1.2.11</logback.version>		
 	</properties>
@@ -40,6 +38,23 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		
+        <!-- spring security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${org.springsecurity-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${org.springsecurity-version}</version>
+        </dependency>
+		<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${org.springsecurity-version}</version>
+        </dependency>        
 		
 		<!-- spring jdbc -->
 		<dependency>
@@ -132,17 +147,25 @@
 			<version>4.0.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.bite2025</groupId>
+			<artifactId>mysite04</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-    <resources>
-        <resource>
-            <directory>src/main/resources</directory>
-            <filtering>false</filtering>
-        </resource>
-    </resources>
-    <finalName>mysite05</finalName>
- 
-</build>
-	
+		<finalName>mysite05</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+		    	<artifactId>tomcat7-maven-plugin</artifactId>
+		    	<version>2.2</version>
+		    	<configuration>
+					<url>${tomcat.deploy.url}</url>
+					<server>tomcat-bit2025</server>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>	
 </project>

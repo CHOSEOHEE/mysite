@@ -1,28 +1,46 @@
 package com.bit2025.mysite.config.app;
 
-import javax.sql.DataSource;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.bit2025.mysite.config.web.FileuploadConfig;
+import com.bit2025.mysite.config.web.LocaleConfig;
+import com.bit2025.mysite.config.web.MvcConfig;
+import com.bit2025.mysite.config.web.SecurityConfig;
+import com.bit2025.mysite.event.ApplicationContextEventListener;
+import com.bit2025.mysite.interceptor.SiteInterceptor;
 
 @Configuration
-public class MyBatisConfig {
+@EnableAspectJAutoProxy
+@EnableWebMvc
+@ComponentScan(basePackages={"com.bit2025.mysite.controller", "com.bit2025.mysite.exception"})
+@Import({LocaleConfig.class, FileuploadConfig.class, SecurityConfig.class, MvcConfig.class})
+public class MyBatisConfig implements WebMvcConfigurer {
+	
+	// Site Interceptor
 	@Bean
-	public SqlSessionFactory sqlSessionFactory(ApplicationContext applicationContext, DataSource dataSource) throws Exception {
-		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-		sqlSessionFactory.setDataSource(dataSource);
-		sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:com/bit2025/mysite/config/app/mybatis/configuration.xml"));
-		
-		return sqlSessionFactory.getObject();
+	public SiteInterceptor siteInterceptor() {
+		return new SiteInterceptor();
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry
+			.addInterceptor(siteInterceptor())
+			.addPathPatterns("/**")
+			.excludePathPatterns("/assets/**");
 	}
 
+	// Application Context Event Listener
 	@Bean
-	public SqlSession sqlSession(SqlSessionFactory sqlSessionFactory) {
-		return new SqlSessionTemplate(sqlSessionFactory);
+	public ApplicationContextEventListener applicationContextEventListener(ApplicationContext applicationContext) {
+		return new ApplicationContextEventListener(applicationContext);
 	}
 }

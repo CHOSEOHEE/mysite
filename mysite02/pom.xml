@@ -2,11 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.bite2025</groupId>
-		<artifactId>mysite</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+	<groupId>com.bite2025</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<artifactId>mysite02</artifactId>
 	<packaging>war</packaging>
 
@@ -17,21 +14,20 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!-- mariadb jdbc driver -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<version>3.5.2</version>
 		</dependency>
-		
+
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jakarta.el</groupId>
 			<artifactId>jakarta.el-api</artifactId>
 			<version>6.0.0</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -58,15 +54,21 @@
 			<version>4.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.bit2025</groupId>
-			<artifactId>hellospring</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<finalName>mysite02</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+		    	<artifactId>tomcat7-maven-plugin</artifactId>
+		    	<version>2.2</version>
+		    	<configuration>
+					<url>${tomcat.deploy.url}</url>
+					<server>tomcat-bit2025</server>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>
